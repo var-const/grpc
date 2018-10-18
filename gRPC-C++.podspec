@@ -681,7 +681,7 @@ Pod::Spec.new do |s|
                               'src/core/lib/transport/transport_impl.h',
                               'src/core/lib/debug/trace.h',
                               'src/core/ext/transport/inproc/inproc_transport.h'
-    ss.preserve_paths = 'etc/roots.pem'
+#ss.preserve_paths = 'etc/roots.pem'
   end
 
   s.subspec 'Protobuf' do |ss|
