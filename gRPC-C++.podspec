@@ -681,6 +681,7 @@ Pod::Spec.new do |s|
                               'src/core/lib/transport/transport_impl.h',
                               'src/core/lib/debug/trace.h',
                               'src/core/ext/transport/inproc/inproc_transport.h'
+    ss.preserve_paths = 'etc/roots.pem'
   end
 
   s.subspec 'Protobuf' do |ss|
@@ -694,7 +695,7 @@ Pod::Spec.new do |s|
                       'include/grpcpp/impl/codegen/config_protobuf.h'
   end
 
-  s.preserve_paths = 'etc/roots.pem'
+#s.preserve_paths = 'etc/roots.pem'
 
   s.prepare_command = <<-END_OF_COMMAND
     find src/cpp/ -type f ! -path '*.grpc_back' -print0 | xargs -0 -L1 sed -E -i'.grpc_back' 's;#include "(pb(_.*)?\\.h)";#include <nanopb/\\1>;g'
