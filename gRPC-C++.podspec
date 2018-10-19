@@ -69,6 +69,9 @@ Pod::Spec.new do |s|
 
   s.default_subspecs = 'Interface', 'Implementation'
 
+  # Certificates, to be able to establish TLS connections:
+  s.resource_bundles = { 'gRPCCertificates' => ['etc/roots.pem'] }
+
   s.header_mappings_dir = 'include/grpcpp'
 
   s.subspec 'Interface' do |ss|
@@ -681,7 +684,6 @@ Pod::Spec.new do |s|
                               'src/core/lib/transport/transport_impl.h',
                               'src/core/lib/debug/trace.h',
                               'src/core/ext/transport/inproc/inproc_transport.h'
-    ss.preserve_paths = 'etc/roots.pem'
   end
 
   s.subspec 'Protobuf' do |ss|
